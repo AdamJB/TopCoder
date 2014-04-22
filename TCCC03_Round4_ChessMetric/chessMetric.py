@@ -16,9 +16,9 @@ class ChessMetric:
     # Clockwise direction from 1 move, and L moves
     dx = [-1, -1, 0, 1, 1, 1, 0, -1,  -1, 1, 2, 2, 1, -1, -2, -2]
     dy = [0, 1, 1, 1, 0, -1, -1, -1,  2, 2, 1, -1, -2, -2, -1, 1]
-    
+
     grid = [[[0 for _ in range(0, piNumMoves+1)] for _ in range(0, piSize)] for _ in range(0,piSize)]
-    
+
     grid[plStart[0]][plEnd[1]][0] = 1
 
     for n in range(1, piNumMoves+1):
@@ -29,8 +29,7 @@ class ChessMetric:
             nx = x + dx[d]
             ny = y + dy[d]
             if nx >= 0 and ny >= 0 and nx < piSize and ny < piSize:
-              grid[nx][ny][n] += grid[x][y][n-1]                             
-    printGrid(grid)
+              grid[nx][ny][n] += grid[x][y][n-1]
     return grid[plEnd[0]][plEnd[1]][piNumMoves]
 
 cm = ChessMetric()
